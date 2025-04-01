@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #0ed222;
+}
+
+
+body {
+    font-family:"Margarine", sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    
+}
+
+body.dark-mode {
+    background-color: #1f1f1f;
+    color: #f1eded;
+
+}
+
+
+
+.contenedor {
+    width: 100vw;
+    height: 140vh;
+    background-color: #191c32;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.brand {
+    margin-top: -7px;
+}
+
+
+.brand span{
+    color: aqua;
+}
+
+.menu {
+    display: flex;
+    width: 50%;
+    justify-content:space-around;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 5px;
+    
+}
+
+.menu .active {
+    color: aqua;
+
+}
+
+.menu a:hover {
+    background-color: aqua;
+    color: #191c32;
+    transition: ease-in .3s;
+}
+
+.toggle-menu,
+.info-content__subtittle {
+  display: none;  
+}
+
+
+.main {
+    margin: 0 auto;
+    width: 80vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+h1 {
+    font-size: clamp(4vw, 1.5em, 3em);
+}
+
+span {
+    color: aqua;
+}
+
+.download-cv,
+.btn-submit {
+    padding: 10px 20px;
+    background-color: aqua;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, .69);
+}
+
+.download-cv:hover {
+    background-color: rgb(198, 26, 26);
+    box-shadow: none;
+}
+
+.main img {
+    width: 350px;
+    border: 7px solid aqua;
+    height: 520px;
+}
+
+.abouth {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: 100vw;
+    align-items: center;
+
+}
+
+.abouth img {
+    width: 100%;
+    grid-column: 1/5;
+}
+
+.abouth-info {
+    grid-column: 5/10;
+    padding: 3em;
+}
+
+.abouth-info h2 {
+    font-size: 2em;
+    color: #191c32;
+}
+.divider {
+    height: 4px;
+    width: 60px;
+    background-color: aqua;
+    margin-top: 5px;
+    margin-bottom: 2em;
+}
+
+.abouth p {
+    margin-bottom: 1em;
+}
+
+
+.portfolio {
+    color: #fff;
+    width: 100vw;
+    background-color: #191c32;
+}
+
+.portfolio-headings {
+    width: 100vw;
+    padding: 5em;
+}
+.portfolio-headings h2 {
+    font-size: 2.5em;
+}
+
+.portfolio .container {
+    width: 80vw;
+    height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    height: 750px;
+    color: #fff;
+    background-color:rgb(103, 95, 160);
+}
+
+.card__img {
+    width: 100%;
+    height: 450px;
+    background-image: url(../CSS/img/IMAGEN\ ZAPATO\ DE\ MADERA-3.png);
+    background-size: cover;
+}
+
+.card__title {
+    padding: 20px;
+}
+
+.card__projects-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card__projects-links a {
+    color: white;
+    text-decoration: none;
+    }
+
+.card__projects-links i {
+    font-size: 2.5em;
+    }
+
+.card .project-details {
+  align-self: center;
+  margin: 2em;
+  width: 70%;
+  text-align: center;
+}
+
+.card .project-details a {
+    text-decoration: none;
+    color: #191c32;
+    text-transform: uppercase;
+
+}
+
+.contact-headings h2 {
+    font-size: 3em;
+}
+
+.container-contact {
+    padding: 3em;
+    margin: 0 auto;
+}
+
+.container-contact img {
+    width: 50%;
+    height: 50%;
+    bottom: 0px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin-top: 2em;
+}
+
+.form-control input {
+    padding: 10px 20px;
+    margin-bottom: 1em;
+    background: none;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.form-control textarea {
+    height: 150px;
+    background: none;
+    color: aqua;
+    padding: 1.5em;
+    border: 2px solid #0ed222;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: 200px;
+    background-color: aqua;
+}
+
+.footer-content h2,
+.sotial-network i {
+    font-size: 3em;
+}
+
+.footer-content h5 {
+    font-size: 1.5em;
+}
+
+.sotial-network {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-top: 1em;
+}
