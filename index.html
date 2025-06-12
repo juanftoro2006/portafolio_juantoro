@@ -1,7 +1,13 @@
-//mejorar este portafolio?
-//agregar un boton para dark dark-mode-toggle
-//agregar un boton para light dark-mode-toggle  
-  
+
+
+  <!--
+  mejorar este portafolio?
+  agregar un boton para dark dark-mode-toggle
+  agregar un boton para light dark-mode-toggle
+  agregar un boton para descargar el cv
+  agregar un boton para ver el cv en linea
+  agregar un boton para ver el portafolio en linea
+  -->
 
 
 <!DOCTYPE html>
@@ -10,28 +16,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio-JUANT</title>
+    <!-- Enlace al archivo CSS principal del proyecto -->
     <link rel="stylesheet" href="CSS/styles.css">
+    <!-- Preconexión para mejorar rendimiento en la carga de fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Inclusión de iconos con Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
   </head>
   <body>
-    
-
-
+    <!-- Contenedor principal del contenido de la página -->
     <div class="contenedor">
       <header>
+        <!-- Barra de navegación -->
         <nav class="navbar">
              <div class="brand">
                 <h2>Portfolio-<span>JUAN Toro</span></h2>
              </div>
-
+             <!-- Toggle para modo oscuro, controlado con JavaScript para cambiar estilos -->
              <div>
                 <input id="dark-mode-toggle" type="checkbox" class="dark-mode-toggle">
                 <label for="dark-mode-toggle">Modo oscuro</label>
              </div>
+             <!-- Menú principal -->
              <div>
-
                 <ul class="menu">
                     <li><a class="active" href="#home">home</a></li>
                     <li><a href="#abouth-me">abouth-me</a></li>
@@ -39,132 +47,142 @@
                     <li><a href="#contact">contact</a></li>
                 </ul>
             </div>
-            </nav>
-        
+        </nav>
        </header>
        <main class="main">
+        <!-- Sección de presentación personal -->
         <div class="info-content">
           <span class="info-content__subtittle">Frontend developer</span>
             <h1>I'm <span>JUAN </span>Toro</h1>
             <p>
-              Soy un emprendedor o reconstructor de vida, en mi experiencia he creado a Tecnipolimeros, donde fabricabamos aislamientos térmicos y acústicos con poliuretano, Comercializadora Toro, que exportaba teca a Europa, también trabajé como asesor de seguros en una gran compañía de mi país
-              y luego de allí y de dar más y más vueltas, volvía crear otra empresa, otro de mis amores, llamado Alimentos buenísima donde no solo era fabricar tortillas de harina de trigo allí tube que fabricar hasta las máquinas
-              para poderlas hacer, sin embargo las vueltas de la vida me llevaron a otro de los amores de mi vida, que es la madera y así me convertí en carpintero contratista, donde le daba solución a los problemas de construcción en madera 
-              a clientes, pero como yo quiero más y quiero vivir mejor, me he propuesto o mejor dicho en RECONSTRUCCIÓN de nuevo, en mi vida y seré un desarrollador de software...y aqui voy.
-             
+              <!-- Descripción personal y profesional del desarrollador -->
+              Hola, soy Juan Fernando Toro Isaza, desarrollador junior apasionado por Python y la creación de soluciones web modernas.
+              Me estoy enfocando en construir aplicaciones full stack con tecnologías como FastAPI, React, JavaScript y SQLite. 
+              Actualmente estoy desarrollando un proyecto llamado mi_consulta, donde aplico buenas prácticas de arquitectura backend, 
+              autenticación de usuarios y desarrollo de interfaces amigables.  Soy autodidacta como muchos y con algunos cursos que 
+              apoyan mucho el conocimiento; disfruto trabajar en proyectos donde la colaboración y el aprendizaje constante son parte del día a día.
+              <!-- Se busca primera oportunidad laboral en desarrollo web -->
+              Estoy buscando mi primera oportunidad laboral en desarrollo web donde pueda seguir creciendo, aportar valor real y aprender junto a un equipo profesional.
+              <!-- Llamado a la acción para contactar -->
+              Si buscas a alguien que no solo programe, sino que también piense como desarrollador, con compromiso, claridad y visión, hablemos
             </p>
+            <!-- Botón para descargar CV -->
             <a download href="#">
             <button class="download-cv" download="">download CV</button>
             </a>
         </div>
+        <!-- Imagen del desarrollador -->
         <img src="CSS/img/juantoro.png" alt="juan toro's picture">
        </main>
     </div>
 
-
-
+    <!-- Sección Sobre mí -->
     <section id="abouth-me">
      <div class="abouth-me">
-       <img src="CSS/img/IMG-20180203-WA0005.jpg" alt="me">
-
-     <div class="abouth-info">
-       <h2>abouth-me</h2>
-     <div class="divider"></div>
-       <p>Nacido en Medellín, Colombia, en los 70´s.  Casado con Ana María, una mujer maravillosa, una gran amiga y sobretodo comañera, además de que es la mamá de mi hijo, pablo, que ya esta cerca de sus 18 años y de empezar a volar por la vida.
-        Desde muy pequeño siempre me he enfocado en crear en hacer empresa o emprendimientos, aunque la vida me sigue teniendo estudiando para lograr mi objetivo de libertad financiera, y aqui voy.</p>
-       <button class="download-cv">Read more</button>
-     </div>
-
+       <img src="CSS/img/IMG-20180203-WA0005.jpg" alt="me & my_son">
+       <div class="abouth-info">
+         <h2>abouth-me</h2>
+         <div class="divider"></div>
+         <p>
+           <!-- Texto descriptivo sobre la historia personal y profesional -->
+           Originario de Medellín, Colombia, con una trayectoria que combina una sólida formación 
+           personal con una mentalidad emprendedora. Casado con Ana María, quien ha sido una gran 
+           aliada en mi vida personal y profesional, y madre de mi hijo Pablo, quien ya cumplió sus 
+           18 años y se prepara para afrontar nuevos desafíos. Desde temprana edad, he enfocado 
+           mi energía en la creación y gestión de emprendimientos, desarrollando habilidades de liderazgo 
+           y resolución de problemas. Mi camino ha sido de constante aprendizaje, complementando mi 
+           experiencia con estudios autodidactas y formaciones técnicas, siempre con la visión de alcanzar 
+           la libertad financiera y contribuir en proyectos innovadores en el ámbito tecnológico y de 
+           desarrollo de software.
+         </p>
+         <!-- Botón para leer más (puede enlazar a una sección extendida) -->
+         <button class="download-cv">Read more</button>
+       </div>
      </div>
     </section>    
 
-
+    <!-- Sección Portfolio -->
     <section id="portfolio">
      <div class="portfolio">
-     <div class="portfolio-headings">
-        <h2>My porfolio</h2>
-        <div class="divider"></div>
-     </div>
+       <div class="portfolio-headings">
+          <h2>My Portfolio</h2>
+          <div class="divider"></div>
+          <p>Estos son algunos de mis proyectos personales, donde he aplicado mis conocimientos en 
+            desarrollo web y programación, todos apoyado siempre de IA.</p>
+       </div>
+       <!-- Contenedor de las tarjetas de proyectos -->
+       <div class="container">
 
-    <div class="container">
-        <div class="card">
-            <div class="card__img">
-            </div>
-            <div class="card__title">
-                <h2>Project description</h2>
-                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus maxime unde quas reprehenderit nam, consequatur eius non architecto illum a autem neque quia alias perferendis fugit repudiandae nobis sed dolor.
-                </p>
-            </div>
-            <div class="card__projects-links">
-                <a href="">
-                    <i class="fa-brands fa-github"></i>"
-                </a>
-                <a href="">
-                    <i class="fa-solid fa-earth-americas"></i>
-                </a>
-                <a href="https://photos.app.goo.gl/npxYpnoh9BX68yxb9" target="_blank">
-                    <i class="fa-brands fa-earlybirds"></i>
-                </a>
-            </div>
-            <button class="project-details download-cv">
-              <a href="">
-              project Details
-              </a>
-            </button>
+         <div class="project-card">
+           <img src="CSS/img/captura-1.png" alt="Captura Lucky Numbers" class="project-img">
+           <div class="project-content">
+             <h3>🎲 Lucky Numbers</h3>
+             <p>Generador aleatorio de números del baloto con interfaz visual simple. Usa Python y Tkinter.</p>
+             <a href="https://github.com/juanftoro2006/lucky-numbers" target="_blank" class="btn-github">Ver en GitHub</a>
+           </div>
         </div>
-    </div>
-    </div>
+
+         <div class="project-card">
+           <img src="CSS/img/captura-2.png" alt="Captura Gestor-tareas-python" class="project-img">
+           <div class="project-content">
+             <h3>🎲 Gestor-tareas-python</h3>
+             <p>Este proyecto está diseñado para ayudarte a organizar, gestionar y realizar un seguimiento de tus tareas de manera eficiente.</p>
+             <a href="https://github.com/juanftoro2006/Gestor-tareas-python.git" target="_blank" class="btn-github">Ver en GitHub</a>
+           </div>
+        </div>
+
+         <div class="project-card">
+           <img src="CSS/img/captura-3.png" alt="Captura Facial-Recognition" class="project-img">
+           <div class="project-content">
+             <h3>🎲 Facial-Recognition</h3>
+             <p>Este proyecto es la adaptación de un sistema de reconocimiento facial utilizando Python y OpenCV.  Este código es adaptado y comprobado</p>
+             <a href="https://github.com/juanftoro2006/Facial-Recognition.git" target="_blank" class="btn-github">Ver en GitHub</a>
+           </div>
+        </div>
+
+          </div>
+       </div>
+     </div>
     </section>
 
-
+    <!-- Sección Contacto -->
   <section id="contact">
- <div class="Contact-section">
-  <div class="contact-headings">
-    <h2>Contact me</h2>
-    <div class="divider"></div>
-  </div>
-
-  
-  <div class="container-contact">
-      <img src="CSS/img/carpenter.bird.png" alt="carpenter bird">
-      <div class="contact-form">
-      <h4>Send a message...</h4>
-      <form class="form-control">
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Your message here">
-        </textarea>
-        <button class="btn-submit">Send message
-        </button>
-      </form>  
+   <div class="Contact-section">
+    <div class="contact-headings">
+      <h2>Contact me</h2>
+      <div class="divider"></div>
+    </div>
+    <!-- Formulario de contacto -->
+    <div class="container-contact">
+        <img src="CSS/img/carpenter.bird.png" alt="carpenter bird">
+        <div class="contact-form">
+        <h4>Send a message...</h4>
+        <form class="form-control">
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="Email">
+          <textarea placeholder="Your message here"></textarea>
+          <button class="btn-submit">Send message</button>
+        </form>  
+       </div>
+    </div>
    </div>
-  </div>
- </div>
   </section>
 
-
-
-<footer class="footer">
-  <div class="footer-content">
-    <h2>JUAN TORO</h2>
-    <h5>FullStack Software developer student</h5>
-  </div>
-  <div class="sotial-network">
-    <a href="https://www.instagram.com/">
-    <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/in/juan-toro-en-v%C3%ADa-al-desarrollo-web-full-stack-451518ab?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bbt7m4rYeShOKknYlLktW2A%3D%3D">
-    <i class="fa-brands fa-linkedin"></i>
-    </a>
-
-  </div>
-
-</footer>
-
-
-
-
-
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h2>JUAN TORO</h2>
+      <h5>FullStack Software developer student</h5>
+    </div>
+    <!-- Redes sociales -->
+    <div class="sotial-network">
+      <a href="https://www.instagram.com/">
+      <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-toro-en-v%C3%ADa-al-desarrollo-web-full-stack-451518ab?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bbt7m4rYeShOKknYlLktW2A%3D%3D">
+      <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
