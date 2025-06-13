@@ -1,0 +1,30 @@
+portafolio
+├── CSS
+│   ├── img
+│   │   ├── 2025 - CV - Juan Fernando Toro Isaza - Esp.pdf
+│   │   ├── IMAGEN ZAPATO DE MADERA-3.png
+│   │   ├── IMG-20180203-WA0005.jpg
+│   │   ├── captura-1.png
+│   │   ├── captura-2.png
+│   │   ├── captura-3.png
+│   │   ├── carpenter.bird.png
+│   │   └── juantoro.png
+│   └── styles.css
+├── README.md
+├── estructura.txt
+├── index.html
+└── venv
+    ├── Include
+    ├── Lib
+    │   └── site-packages
+    ├── Scripts
+    │   ├── Activate.ps1
+    │   ├── activate
+    │   ├── activate.bat
+    │   ├── deactivate.bat
+    │   ├── pip.exe
+    │   ├── pip3.12.exe
+    │   ├── pip3.exe
+    │   ├── python.exe
+    │   └── pythonw.exe
+    └── pyvenv.cfg
