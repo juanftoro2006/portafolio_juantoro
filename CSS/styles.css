@@ -78,24 +78,28 @@ body.dark-mode {
 }
 
 .menu a:hover {
-    background-color: aqua;
-    color: #191c32;
+    background-color: rgb(0, 34, 255);
+    color: #dedfe6;
     transition: ease-in .3s;
 }
 
 .toggle-menu,
-.info-content__subtittle {
-  display: none;  
+.info-content {
+    max-width: 400px;
+    flex: 1 1 300px;
+}
+.main img {
+    flex: 1 1 220px;
 }
 
 
 .main {
-    margin: 0 auto;
-    width: 80vw;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    display: flex;
+    align-items: center;      /* Centra verticalmente */
+    justify-content: center;  /* Centra horizontalmente */
+    gap: 2rem;                /* Espacio entre texto e imagen */
+    flex-wrap: wrap;          /* Permite que se apilen en móvil */
+    padding: 2rem 0;   /* Espacio alrededor del contenido */
 }
 
 h1 {
@@ -126,9 +130,16 @@ span {
 }
 
 .main img {
-    width: 350px;
-    border: 7px solid aqua;
-    height: 520px;
+    width: 100%;
+    max-width: 500px;        /* Limita el ancho máximo de la imagen */
+    height: auto;             /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 2%;         /* Hace la imagen circular */
+    border: 5px solid #06b6d4;  /* Borde color aqua/cyan */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    transition: transform 0.3s; /* Transición suave al hacer hover */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
 }
 
 .abouth {
