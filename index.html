@@ -1,212 +1,168 @@
-
-
-  <!--
-  mejorar este portafolio?
-  agregar un boton para dark dark-mode-toggle
-  agregar un boton para light dark-mode-toggle
-  agregar un boton para descargar el cv
-  agregar un boton para ver el cv en linea
-  agregar un boton para ver el portafolio en linea
-  -->
-
+<!--
+  Mejorar este portafolio:
+  - Agregar un botón para dark-mode-toggle
+  - Agregar un botón para descargar el CV
+  - Agregar un botón para ver el CV en línea
+  - Agregar un botón para ver el portafolio en línea
+-->
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio-JUANT</title>
-    <!-- Preconexión para mejorar rendimiento en la carga de fuentes de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Inclusión de iconos con Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-    <link rel="stylesheet" href="CSS/styles.css">
-  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
   </head>
 
   <body>
-    <!-- Contenedor principal del contenido de la página -->
     <div class="contenedor">
       <header>
-        <!-- Barra de navegación -->
         <nav class="navbar">
-             <div class="brand">
-                <h2>Portfolio-<span>JUAN Toro</span></h2>
-             </div>
-             <!-- Toggle para modo oscuro, controlado con JavaScript para cambiar estilos -->
-             <div>
-                <input id="dark-mode-toggle" type="checkbox" class="dark-mode-toggle">
-                <label for="dark-mode-toggle">Modo oscuro</label>
-             </div>
-             <!-- Menú principal -->
-             <div>
-                <ul class="menu">
-                    <li><a class="active" href="#home">home</a></li>
-                    <li><a href="#abouth-me">abouth-me</a></li>
-                    <li><a href="#portfolio">portfolio</a></li>
-                    <li><a href="#contact">contact</a></li>
-                </ul>
-            </div>
+          <div class="brand">
+            <h2>Portfolio-<span>JUAN Toro</span></h2>
+          </div>
+          <div>
+            <input id="dark-mode-toggle" type="checkbox" class="dark-mode-toggle" />
+            <label for="dark-mode-toggle">Modo oscuro</label>
+          </div>
+          <div>
+            <ul class="menu">
+              <li><a class="active" href="#home">home</a></li>
+              <li><a href="#about-me">about-me</a></li>
+              <li><a href="#portfolio">portfolio</a></li>
+              <li><a href="#contact">contact</a></li>
+            </ul>
+          </div>
         </nav>
-       </header>
-       <main class="main">
-        <!-- Sección de presentación personal -->
+      </header>
+
+      <main class="main">
         <div class="info-content">
-          <span class="info-content__subtittle">Frontend developer</span>
-            <h1>I'm <span>JUAN </span>Toro</h1>
+          <span class="info-content__subtittle">Backend / Frontend developer</span>
+          <h1>I'm <span>JUAN </span>Toro</h1>
           <section id="sobre-mi" class="about-section">
-          <h2>Sobre mí</h2>
-            <p>
-              <!-- Descripción personal y profesional del desarrollador -->
-              <p>
-              Soy Juan Fernando Toro Isaza, desarrollador junior con enfoque en Python y pasión por construir soluciones simples, útiles y bien estructuradas. 
-              Disfruto resolver problemas, aprender cosas nuevas todos los días y compartir ese conocimiento. 🧠✨
-              </p>
-              <p>
-              Me encanta trabajar con tecnologías como <strong>Python, FastAPI, JavaScript, HTML y CSS</strong>. También tengo experiencia con Git, GitHub y bases de datos como SQLite y PostgreSQL.
-              </p>
-              <p>
-              Actualmente estoy enfocado en mejorar mis habilidades como Full Stack Developer, creando proyectos reales y prácticos que aporten valor.
-              </p>
-              <p>
-              Si estás buscando a alguien comprometido, curioso y con ganas de crecer en equipo, <strong>¡I'm Here!</strong> 🚀
-              </p>
-            </p>
-          </section>  
-            <!-- Botón para descargar CV -->
-            <a download href="#">
-            <a class="download-cv" href="https://www.linkedin.com/in/juan-fernando-toro-isaza-451518ab" target="_blank">Download CV</a>
-            </a>
+            <h2>Sobre mí</h2>
+            <p>Soy Juan Fernando Toro Isaza, desarrollador junior con enfoque en Python y pasión por construir soluciones simples, útiles y bien estructuradas. Disfruto resolver problemas, aprender cosas nuevas todos los días y compartir ese conocimiento. 🧠✨</p>
+            <p>Me encanta trabajar con tecnologías como <strong>Python, FastAPI, JavaScript, HTML y CSS</strong>. También tengo experiencia con Git, GitHub y bases de datos como SQLite y PostgreSQL.</p>
+            <p>Actualmente estoy enfocado en mejorar mis habilidades como Full Stack Developer, creando proyectos reales y prácticos que aporten valor.</p>
+            <p>Si estás buscando a alguien comprometido, curioso y con ganas de crecer en equipo, <strong>¡I'm Here!</strong> 🚀</p>
+          </section>
+          <a class="download-cv" href="https://www.linkedin.com/in/juan-fernando-toro-isaza-451518ab" target="_blank">Download CV</a>
         </div>
-        <!-- Imagen del desarrollador -->
-        <img src="CSS/img/juantoro.png" alt="juan toro's picture">
-       </main>
+        <img src="CSS/img/juantoro.png" alt="juan toro's picture" />
+      </main>
     </div>
 
-    <!-- Sección Sobre mí -->
-    <section id="abouth-me">
-     <div class="abouth-me">
-       <img src="CSS/img/IMG-20180203-WA0005.jpg" alt="me & my_son">
-       <div class="abouth-info">
-         <h2>abouth-me</h2>
-         <div class="divider"></div>
-         <p>
-           <!-- Texto descriptivo sobre la historia personal y profesional -->
-           <p>
-            Originario de Medellín, Colombia, con una trayectoria que combina una sólida formación 
-           personal con una mentalidad emprendedora.
-           </p> 
-           <p>Casado con Ana María, quien ha sido una gran aliada en mi vida personal y profesional, 
-            y madre de mi hijo Pablo, quien ya cumplió sus 18 años y se prepara para afrontar nuevos 
-            desafíos. 
-           </p>
-            <p> 
-            Desde temprana edad, he enfocado mi energía en la creación y gestión de emprendimientos, 
-            desarrollando habilidades y resolución de problemas. Mi camino ha sido de constante aprendizaje, 
-            complementando mi experiencia con estudios autodidactas y formaciones técnicas, siempre 
-            con la visión de alcanzar la libertad financiera y contribuir en proyectos innovadores en 
-            el ámbito tecnológico y de desarrollo de software.
-            </p>
-         </p>
-         <!-- Botón para leer más (puede enlazar a una sección extendida) -->
-         <button class="download-cv">Read more</button>
-       </div>
-     </div>
-    </section>    
-
-    <!-- Sección Portfolio -->
-    <section id="portfolio">
-     <div class="portfolio">
-       <div class="portfolio-headings">
-          <h2>My Portfolio</h2>
+    <section id="about-me">
+      <div class="about-me">
+        <img src="CSS/img/IMG-20180203-WA0005.jpg" alt="me & my_son" />
+        <div class="about-info">
+          <h2>About me</h2>
           <div class="divider"></div>
-          <p>Estos son algunos de mis proyectos personales, donde he aplicado mis conocimientos en 
-            desarrollo web y programación, todos apoyado siempre de IA.</p>
-       </div>
-
-       <!-- Contenedor de las tarjetas de proyectos -->
-       <div class="container">
-
-         <div class="project-card">
-           <img src="CSS/img/captura-1.png" alt="Captura Lucky Numbers" class="project-img">
-           <div class="project-content">
-             <h3>🎲 Lucky Numbers</h3>
-             <p>Generador aleatorio de números del baloto con interfaz visual simple. Usa Python y Tkinter.</p>
-             <a href="https://github.com/juanftoro2006/lucky-numbers" target="_blank" class="btn-github">Ver en GitHub</a>
-           </div>
+          <p>Originario de Medellín, Colombia, con una trayectoria que combina una sólida formación personal con una mentalidad emprendedora.</p>
+          <p>Casado con Ana María, quien ha sido una gran aliada en mi vida personal y profesional, y madre de mi hijo Pablo, quien ya cumplió sus 18 años y se prepara para afrontar nuevos desafíos.</p>
+          <p>Desde temprana edad, he enfocado mi energía en la creación y gestión de emprendimientos, desarrollando habilidades y resolución de problemas. Mi camino ha sido de constante aprendizaje, complementando mi experiencia con estudios autodidactas y formaciones técnicas, siempre con la visión de alcanzar la libertad financiera y contribuir en proyectos innovadores en el ámbito tecnológico y de desarrollo de software.</p>
+          <button class="download-cv">Read more</button>
         </div>
-
-         <div class="project-card">
-           <img src="CSS/img/captura-2.png" alt="Captura Gestor-tareas-python" class="project-img">
-           <div class="project-content">
-             <h3>🎲 Gestor-tareas-python</h3>
-             <p>Este proyecto está diseñado para ayudarte a organizar, gestionar y realizar un seguimiento de tus tareas de manera eficiente.</p>
-             <a href="https://github.com/juanftoro2006/Gestor-tareas-python.git" target="_blank" class="btn-github">Ver en GitHub</a>
-           </div>
-        </div>
-
-         <div class="project-card">
-           <img src="CSS/img/captura-3.png" alt="Captura Facial-Recognition" class="project-img">
-           <div class="project-content">
-             <h3>🎲 Facial-Recognition</h3>
-             <p>Este proyecto es la adaptación de un sistema de reconocimiento facial utilizando Python y OpenCV.  Este código es adaptado y comprobado</p>
-
-             <!-- Sección para ingresar al github -->
-             <a href="https://github.com/juanftoro2006/Facial-Recognition.git" target="_blank" class="btn-github">Repositorio en GitHub</a>
-
-             <br><br>
-
-             <!-- Miniatura del video y demostración en youtube -->
-             <a href="https://youtu.be/lX_z6xwEOVs" target="_blank">
-             <img src="https://img.youtube.com/vi/lX_z6xwEOVs/0.jpg" alt="Demo video" class="project-img">
-            </a>
-           </div>
-        </div>
-
-          </div>
-       </div>
-     </div>
+      </div>
     </section>
 
-    <!-- Sección Contacto -->
-  <section id="contact">
-   <div class="Contact-section">
-    <div class="contact-headings">
-      <h2>ContactMe</h2>
-      <div class="divider"></div>
-    </div>
-    <!-- Formulario de contacto -->
-    <div class="container-contact">
-        <img src="CSS/img/carpenter.bird.png" alt="carpenter bird">
-        <div class="contact-form">
-        <h4>Send a message...</h4>
-        <form class="form-control">
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email">
-          <textarea placeholder="Your message here"></textarea>
-          <button class="btn-submit">Send message</button>
-        </form>  
-       </div>
-    </div>
-   </div>
-  </section>
+    <section id="portfolio">
+      <div class="portfolio">
+        <div class="portfolio-headings">
+          <h2>My Portfolio</h2>
+          <div class="divider"></div>
+          <p>Estos son algunos de mis proyectos personales, donde he aplicado mis conocimientos en desarrollo web y programación, todos apoyado siempre de IA.</p>
+        </div>
 
-  <!-- Pie de página -->
-  <footer class="footer">
-    <div class="footer-content">
-      <h2>JUAN TORO</h2>
-      <h5>FullStack Software developer student</h5>
-    </div>
-    <!-- Redes sociales -->
-    <div class="sotial-network">
-      <a href="https://www.instagram.com/">
-      <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/juan-toro-en-v%C3%ADa-al-desarrollo-web-full-stack-451518ab?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bbt7m4rYeShOKknYlLktW2A%3D%3D">
-      <i class="fa-brands fa-linkedin"></i>
-      </a>
-    </div>
-  </footer>
-</body>
+        <div class="container">
+          <div class="project-card">
+            <img src="CSS/img/captura-1.png" alt="Captura Lucky Numbers" class="project-img" />
+            <div class="project-content">
+              <h3>🎲 Lucky Numbers</h3>
+              <p>Generador aleatorio de números del baloto con interfaz visual simple. Usa Python y Tkinter.</p>
+              <a href="https://github.com/juanftoro2006/lucky-numbers" target="_blank" class="btn-github">GitHub</a>
+
+            <a href="https://youtu.be/C4mE-ksemaE" target="_blank">
+            <img src="https://img.youtube.com/vi/C4mE-ksemaE/0.jpg" alt="Demo video" class="project-img" />
+
+          </div>
+         </div>
+
+          </a>
+
+          <div class="project-card">
+            <img src="CSS/img/captura-2.png" alt="Captura Gestor-tareas-python" class="project-img" />
+            <div class="project-content">
+              <h3>🎲 Gestor-tareas-python</h3>
+              <p>Este proyecto está diseñado para ayudarte a organizar, gestionar y realizar un seguimiento de tus tareas de manera eficiente.</p>
+              <a href="https://github.com/juanftoro2006/Gestor-tareas-python.git" target="_blank" class="btn-github">GitHub</a>
+              <a href="https://youtu.be/80UCYZiqCtQ" target="_blank">
+                <img src="https://img.youtube.com/vi/80UCYZiqCtQ/0.jpg" alt="Demo video" class="project-img" />
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="CSS/img/captura-3.png" alt="Captura Facial-Recognition" class="project-img" />
+            <div class="project-content">
+              <h3>🎲 Facial-Recognition</h3>
+              <p>Este proyecto es la adaptación de un sistema de reconocimiento facial utilizando Python y OpenCV. Este código es adaptado y comprobado.</p>
+              <a href="https://github.com/juanftoro2006/Facial-Recognition.git" target="_blank" class="btn-github">GitHub</a>
+              <a href="https://youtu.be/lX_z6xwEOVs" target="_blank">
+                <img src="https://img.youtube.com/vi/lX_z6xwEOVs/0.jpg" alt="Demo video" class="project-img" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-section">
+        <div class="contact-headings">
+          <h2>ContactMe</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="container-contact">
+          <img src="CSS/img/carpenter.bird.png" alt="carpenter bird" />
+          <div class="contact-form">
+            <h4>Send a message...</h4>
+            <form class="form-control">
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email" />
+              <textarea placeholder="Your message here"></textarea>
+              <button class="btn-submit">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>JUAN TORO</h2>
+        <h5>FullStack Software developer student</h5>
+      </div>
+      <div class="sotial-network">
+        <a href="https://www.instagram.com/">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/juan-toro-en-v%C3%ADa-al-desarrollo-web-full-stack-451518ab">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('dark-mode-toggle');
+      toggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
+  </body>
 </html>

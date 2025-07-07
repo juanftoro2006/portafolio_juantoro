@@ -1,38 +1,54 @@
+/*
+=====================================
+🎨 CONFIGURACIONES BASE DEL PROYECTO
+=====================================
+*/
+
+/* Fuente importada desde Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+/* Tailwind CSS: base, componentes y utilidades */
 
 
+/*
+=====================================
+🧱 RESETEO Y ESTILOS GENERALES
+=====================================
+*/
 
-
-
+/* Reset general de márgenes, rellenos y box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Color de fondo al seleccionar texto */
 ::selection {
     background-color: #0ed222;
 }
 
-
+/* Estilo general del cuerpo de la página */
 body {
-    font-family:"Margarine", sans-serif;
+    font-family: "Margarine", sans-serif;
     background-color: #f8f9fa;
     color: #333;
-    
 }
 
+/* Modo oscuro del body */
 body.dark-mode {
     background-color: #1f1f1f;
     color: #f1eded;
-
 }
 
 
+/*
+=====================================
+📦 LAYOUT Y NAVEGACIÓN
+=====================================
+*/
 
+/* Contenedor principal */
 .contenedor {
     width: 100vw;
     height: 140vh;
@@ -40,66 +56,72 @@ body.dark-mode {
     color: #fff;
 }
 
+/* Barra de navegación */
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 2em;
 }
 
+/* Marca o logo */
 .brand {
     margin-top: -7px;
 }
-
-
-.brand span{
+.brand span {
     color: aqua;
 }
 
+/* Menú de navegación */
 .menu {
-    display: flex;
-    width: 50%;
-    justify-content:space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem; /* separa los ítems */
+    width: 100%;
+    max-width: 600px; /* evita que se desparrame */
+    margin: 0 auto; /* centra horizontalmente */
+    padding: 0;
 }
-
 .menu li {
     list-style: none;
 }
-
 .menu a {
     color: #fff;
     text-decoration: none;
     padding: 5px 5px;
-    
 }
-
 .menu .active {
     color: aqua;
-
 }
-
 .menu a:hover {
     background-color: rgb(0, 34, 255);
     color: #dedfe6;
     transition: ease-in .3s;
 }
 
+
+/*
+=====================================
+🖼️ SECCIÓN PRINCIPAL (HERO)
+=====================================
+*/
+
 .toggle-menu,
 .info-content {
     max-width: 400px;
     flex: 1 1 300px;
 }
+
 .main img {
     flex: 1 1 220px;
 }
 
-
 .main {
     display: flex;
-    align-items: center;      /* Centra verticalmente */
-    justify-content: center;  /* Centra horizontalmente */
-    gap: 2rem;                /* Espacio entre texto e imagen */
-    flex-wrap: wrap;          /* Permite que se apilen en móvil */
-    padding: 2rem 0;   /* Espacio alrededor del contenido */
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
 }
 
 h1 {
@@ -123,7 +145,6 @@ span {
     font-weight: bold;
     box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, .69);
 }
-
 .download-cv:hover {
     background-color: #005582;
     box-shadow: none;
@@ -131,23 +152,29 @@ span {
 
 .main img {
     width: 100%;
-    max-width: 500px;        /* Limita el ancho máximo de la imagen */
-    height: auto;             /* Mantiene la proporción de la imagen */
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
-    border-radius: 2%;         /* Hace la imagen circular */
-    border: 5px solid #06b6d4;  /* Borde color aqua/cyan */
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2%;
+    border: 5px solid #06b6d4;
     box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    transition: transform 0.3s; /* Transición suave al hacer hover */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    display: block; /* Asegura que la imagen se comporte como un bloque */
+    transition: transform 0.3s;
+    margin: 0 auto;
+    display: block;
 }
+
+
+/*
+=====================================
+🙋‍♂️ SECCIÓN SOBRE MÍ
+=====================================
+*/
 
 .abouth {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     width: 100vw;
     align-items: center;
-
 }
 
 .abouth img {
@@ -164,6 +191,7 @@ span {
     font-size: 2em;
     color: #191c32;
 }
+
 .divider {
     height: 4px;
     width: 60px;
@@ -177,6 +205,12 @@ span {
 }
 
 
+/*
+=====================================
+🎨 PORTAFOLIO
+=====================================
+*/
+
 .portfolio {
     color: #fff;
     width: 100vw;
@@ -187,6 +221,7 @@ span {
     width: 100vw;
     padding: 5em;
 }
+
 .portfolio-headings h2 {
     font-size: 2.5em;
 }
@@ -203,7 +238,7 @@ span {
     width: 100%;
     height: 750px;
     color: #fff;
-    background-color:rgb(103, 95, 160);
+    background-color: rgb(103, 95, 160);
 }
 
 .card__img {
@@ -225,25 +260,31 @@ span {
 .card__projects-links a {
     color: white;
     text-decoration: none;
-    }
+}
 
 .card__projects-links i {
     font-size: 2.5em;
-    }
+}
 
 .card .project-details {
-  align-self: center;
-  margin: 2em;
-  width: 70%;
-  text-align: center;
+    align-self: center;
+    margin: 2em;
+    width: 70%;
+    text-align: center;
 }
 
 .card .project-details a {
     text-decoration: none;
     color: #191c32;
     text-transform: uppercase;
-
 }
+
+
+/*
+=====================================
+📬 CONTACTO
+=====================================
+*/
 
 .contact-headings h2 {
     font-size: 3em;
@@ -283,6 +324,13 @@ span {
     border: 2px solid #0ed222;
 }
 
+
+/*
+=====================================
+⚓ PIE DE PÁGINA (FOOTER)
+=====================================
+*/
+
 .footer {
     display: flex;
     flex-direction: column;
@@ -309,76 +357,91 @@ span {
     margin-top: 1em;
 }
 
+
+/*
+=====================================
+🧩 TARJETAS DE PROYECTOS (Extras)
+=====================================
+*/
+
 .project-card {
-  background: #f4f4f4;
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  margin: 20px;
-  max-width: 300px;
+    background: #f4f4f4;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    margin: 20px;
+    max-width: 300px;
 }
 
 .project-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .project-content {
-  padding: 15px;
+    padding: 15px;
 }
 
 .project-content h3 {
-  margin: 0;
-  color: #333;
+    margin: 0;
+    color: #333;
 }
 
 .project-content p {
-  font-size: 14px;
-  color: #555;
+    font-size: 14px;
+    color: #555;
 }
 
 .btn-github {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: #24292e;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #24292e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .btn-github:hover {
-  background: #0366d6;
+    background: #0366d6;
 }
 
+
+/*
+=====================================
+🧾 SECCIÓN SOBRE EL PROYECTO (Extras)
+=====================================
+*/
+
 .about-section {
-  background-color: #b2b0ee;
-  padding: 40px;
-  border-radius: 10px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #b2b0ee;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .about-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .about-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #444;
-  margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
 }
+
 .about-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
