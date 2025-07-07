@@ -4,11 +4,7 @@
 =====================================
 */
 
-/* Fuente importada desde Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap');
-
-/* Tailwind CSS: base, componentes y utilidades */
-
 
 /*
 =====================================
@@ -16,31 +12,15 @@
 =====================================
 */
 
-/* Reset general de márgenes, rellenos y box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Color de fondo al seleccionar texto */
 ::selection {
     background-color: #0ed222;
 }
-
-/* Estilo general del cuerpo de la página */
-body {
-    font-family: "Margarine", sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-}
-
-/* Modo oscuro del body */
-body.dark-mode {
-    background-color: #1f1f1f;
-    color: #f1eded;
-}
-
 
 /*
 =====================================
@@ -48,22 +28,33 @@ body.dark-mode {
 =====================================
 */
 
-/* Contenedor principal */
 .contenedor {
-    width: 100vw;
-    height: 140vh;
+    width: 100%;
+    min-height: 100vh;
     background-color: #191c32;
     color: #fff;
 }
 
-/* Barra de navegación */
+header {
+    width: 100%;
+    background: #22223b;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 2em;
+    align-items: center;
+    padding: 2em 2vw;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Marca o logo */
 .brand {
     margin-top: -7px;
 }
@@ -71,14 +62,13 @@ body.dark-mode {
     color: aqua;
 }
 
-/* Menú de navegación */
 .menu {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1.5rem; /* separa los ítems */
+    gap: 1.5rem;
     width: 100%;
-    max-width: 600px; /* evita que se desparrame */
-    margin: 0 auto; /* centra horizontalmente */
+    max-width: 600px;
+    margin: 0 auto;
     padding: 0;
 }
 .menu li {
@@ -98,7 +88,6 @@ body.dark-mode {
     transition: ease-in .3s;
 }
 
-
 /*
 =====================================
 🖼️ SECCIÓN PRINCIPAL (HERO)
@@ -111,10 +100,6 @@ body.dark-mode {
     flex: 1 1 300px;
 }
 
-.main img {
-    flex: 1 1 220px;
-}
-
 .main {
     display: flex;
     align-items: center;
@@ -122,12 +107,26 @@ body.dark-mode {
     gap: 2rem;
     flex-wrap: wrap;
     padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.main img {
+    flex: 1 1 220px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2%;
+    border: 5px solid #06b6d4;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+    margin: 0 auto;
+    display: block;
 }
 
 h1 {
-    font-size: clamp(4vw, 1.5em, 3em);
+    font-size: clamp(2rem, 6vw, 3em);
 }
-
 span {
     color: aqua;
 }
@@ -150,20 +149,6 @@ span {
     box-shadow: none;
 }
 
-.main img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 2%;
-    border: 5px solid #06b6d4;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    transition: transform 0.3s;
-    margin: 0 auto;
-    display: block;
-}
-
-
 /*
 =====================================
 🙋‍♂️ SECCIÓN SOBRE MÍ
@@ -173,25 +158,23 @@ span {
 .abouth {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    width: 100vw;
+    width: 100%;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
 .abouth img {
     width: 100%;
     grid-column: 1/5;
 }
-
 .abouth-info {
-    grid-column: 5/10;
+    grid-column: 5/11;
     padding: 3em;
 }
-
 .abouth-info h2 {
     font-size: 2em;
     color: #191c32;
 }
-
 .divider {
     height: 4px;
     width: 60px;
@@ -199,11 +182,9 @@ span {
     margin-top: 5px;
     margin-bottom: 2em;
 }
-
 .abouth p {
     margin-bottom: 1em;
 }
-
 
 /*
 =====================================
@@ -213,72 +194,64 @@ span {
 
 .portfolio {
     color: #fff;
-    width: 100vw;
+    width: 100%;
     background-color: #191c32;
 }
-
 .portfolio-headings {
-    width: 100vw;
-    padding: 5em;
+    width: 100%;
+    padding: 5em 2vw 2em 2vw;
+    box-sizing: border-box;
 }
-
 .portfolio-headings h2 {
     font-size: 2.5em;
 }
-
 .portfolio .container {
-    width: 80vw;
-    height: 80vh;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 2em;
+    min-height: 300px;
 }
-
 .card {
     width: 100%;
     height: 750px;
     color: #fff;
     background-color: rgb(103, 95, 160);
 }
-
 .card__img {
     width: 100%;
     height: 450px;
     background-image: url(../CSS/img/IMAGEN\ ZAPATO\ DE\ MADERA-3.png);
     background-size: cover;
 }
-
 .card__title {
     padding: 20px;
 }
-
 .card__projects-links {
     display: flex;
     justify-content: space-evenly;
 }
-
 .card__projects-links a {
     color: white;
     text-decoration: none;
 }
-
 .card__projects-links i {
     font-size: 2.5em;
 }
-
 .card .project-details {
     align-self: center;
     margin: 2em;
     width: 70%;
     text-align: center;
 }
-
 .card .project-details a {
     text-decoration: none;
     color: #191c32;
     text-transform: uppercase;
 }
-
 
 /*
 =====================================
@@ -286,28 +259,90 @@ span {
 =====================================
 */
 
+#contact {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Cambiado de 'auto' a viewport height */
+    background-color: #191c32; /* Color de respaldo por si la imagen falla */
+    color: #fff;
+    padding: 2em 0; /* Espacio interno */
+}
+
+.contact-headings {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
 .contact-headings h2 {
     font-size: 3em;
 }
-
 .container-contact {
-    padding: 3em;
+    position: relative; /* Necesario para el z-index */
+    z-index: 2; /* Asegura que el contenido esté sobre el fondo */
+    padding: 3em 2vw;
     margin: 0 auto;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Alinea el formulario a la derecha */
+    align-items: center;
+    gap: 2em;
+    min-height: 100vh; /* Toma toda la altura */
+}
+.contact-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/carpenter.bird.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 0; /* Asegura que esté detrás del contenido */
+}
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(25, 28, 50, 0.7); /* Ajusta color y opacidad */
+    z-index: 1;
+    pointer-events: none;
+}
+.contact-section > * {
+    position: relative;
+    z-index: 2;
 }
 
 .container-contact img {
-    width: 50%;
-    height: 50%;
-    bottom: 0px;
+    display: none;
+}
+
+.contact-form {
+    background: rgba(25, 28, 50, 0.8); /* Fondo semitransparente */
+    padding: 2em;
+    border-radius: 8px;
+    backdrop-filter: blur(5px); /* Efecto de vidrio esmerilado */
+    border: 1px solid aqua;
 }
 
 .form-control {
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 350px;
+    max-width: 90vw;
     margin-top: 2em;
 }
 
+.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    max-width: 90vw;
+    margin-top: 2em;
+}
 .form-control input {
     padding: 10px 20px;
     margin-bottom: 1em;
@@ -315,7 +350,6 @@ span {
     border: none;
     border-bottom: 1px solid;
 }
-
 .form-control textarea {
     height: 150px;
     background: none;
@@ -323,7 +357,6 @@ span {
     padding: 1.5em;
     border: 2px solid #0ed222;
 }
-
 
 /*
 =====================================
@@ -335,28 +368,25 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    width: 100vw;
-    height: 200px;
+    align-items: center;
+    width: 100%;
+    min-height: 180px;
     background-color: aqua;
+    padding: 2em 0;
 }
-
 .footer-content h2,
 .sotial-network i {
     font-size: 3em;
 }
-
 .footer-content h5 {
     font-size: 1.5em;
 }
-
 .sotial-network {
     display: flex;
     justify-content: space-evenly;
     width: 300px;
     margin-top: 1em;
 }
-
 
 /*
 =====================================
@@ -372,29 +402,25 @@ span {
     flex-direction: column;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     margin: 20px;
-    max-width: 300px;
+    max-width: 320px;
+    width: 100%;
 }
-
 .project-img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
-
 .project-content {
     padding: 15px;
 }
-
 .project-content h3 {
     margin: 0;
     color: #333;
 }
-
 .project-content p {
     font-size: 14px;
     color: #555;
 }
-
 .btn-github {
     display: inline-block;
     margin-top: 10px;
@@ -405,11 +431,9 @@ span {
     border-radius: 8px;
     font-weight: bold;
 }
-
 .btn-github:hover {
     background: #0366d6;
 }
-
 
 /*
 =====================================
@@ -424,24 +448,161 @@ span {
     margin: 40px auto;
     width: 90%;
     max-width: 800px;
+    box-sizing: border-box;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .about-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #333;
 }
-
 .about-section p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #444;
     margin-bottom: 15px;
 }
-
 .about-section img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+/*
+=====================================
+🌐 MEDIA QUERIES RESPONSIVE
+=====================================
+*/
+
+@media (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  .main img {
+    max-width: 90vw;
+  }
+  .portfolio .container {
+    flex-direction: column;
+    align-items: center;
+    width: 98vw;
+    min-height: unset;
+  }
+  .project-card {
+    max-width: 95vw;
+  }
+  .about-section {
+    padding: 20px;
+    width: 98vw;
+  }
+  .footer {
+    min-height: 120px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .abouth {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+  .abouth img,
+  .abouth-info {
+    grid-column: 1/2;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em 0.5em;
+  }
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+    max-width: 100vw;
+  }
+  .about-section {
+    padding: 10px;
+    width: 100vw;
+  }
+  .container-contact,
+  .form-control {
+    width: 95vw;
+    padding: 0;
+  }
+  .portfolio-headings {
+    padding: 2em 1em;
+  }
+  .portfolio .container {
+    width: 100vw;
+    padding: 0;
+  }
+  .project-card {
+    margin: 10px auto;
+    max-width: 98vw;
+  }
+  .footer {
+    width: 100vw;
+    padding: 1em 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .main img {
+    max-width: 98vw;
+  }
+  .about-section,
+  .portfolio-headings,
+  .portfolio .container,
+  .footer {
+    width: 100vw;
+    padding: 0.5em;
+  }
+  .project-card {
+    max-width: 98vw;
+    margin: 8px auto;
+  }
+  .form-control {
+    width: 98vw;
+  }
+  .container-contact img {
+    width: 100px;
+    max-width: 90vw;
+  }
+}
+
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: "Margarine", sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Modo oscuro del body */
+body.modo-oscuro {
+  background-color: #22223b;
+  color: #ffffff;
+}
+body.modo-oscuro .about-section {
+    background-color: #5bb32c;
+    color: #ffffff;
+}
+body.modo-oscuro .portfolio {
+    background-color: #22223b;
+}
+body.modo-oscuro .project-card {
+    background: #333;
+    color: #fff;
+}
+body.modo-oscuro .footer {
+    background-color: #191c32;
+    color: #fff;
+}
+body.modo-oscuro .btn-github {
+    background: #0077b5;
+}
+body.modo-oscuro .btn-github:hover {
+    background: #005582;
 }
