@@ -1,0 +1,58 @@
+---
+// Página principal. Estructura de contenido según la bitácora (Hero, Proyectos,
+// Sobre mí, Contacto) — SIN diseño final, solo la mecánica: leer la collection,
+// ordenar por 'orden', y mostrar el estado real de cada proyecto.
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const proyectos = (await getCollection("proyectos")).sort(
+	(a, b) => a.data.orden - b.data.orden
+);
+---
+
+<Layout titulo="Juan Toro — Desarrollador de Automatización e Integraciones">
+	<main class="mx-auto max-w-3xl px-4 py-12">
+		<section id="hero">
+			<h1 class="text-3xl font-bold">Juan Toro</h1>
+			<p class="text-lg text-slate-600">Desarrollador de Automatización e Integraciones</p>
+		</section>
+
+		<section id="proyectos" class="mt-12">
+			<h2 class="text-2xl font-semibold mb-4">Proyectos</h2>
+			{proyectos.length === 0 && (
+				<p class="text-slate-500">Todavía no hay proyectos cargados en src/content/proyectos/.</p>
+			)}
+			<ul class="space-y-6">
+				{proyectos.map((proyecto) => (
+					<li class="border rounded-lg p-4">
+						<a href={`/proyectos/${proyecto.id}/`} class="text-xl font-medium hover:underline">
+							{proyecto.data.titulo}
+						</a>
+						{proyecto.data.estado === "construccion" && (
+							<span class="ml-2 text-xs uppercase tracking-wide bg-amber-100 text-amber-800 px-2 py-1 rounded">
+								en construcción
+							</span>
+						)}
+						<p class="text-slate-600 mt-1">{proyecto.data.problema}</p>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<section id="sobre-mi" class="mt-12">
+			<h2 class="text-2xl font-semibold mb-4">Sobre mí</h2>
+			<p class="text-slate-600">
+				[Pendiente — texto real: 25 años operando negocios reales (construcción,
+				alimentos, seguros, comercio internacional), ahora construyendo los
+				sistemas que él mismo necesitaba como operador.]
+			</p>
+		</section>
+
+		<section id="contacto" class="mt-12">
+			<h2 class="text-2xl font-semibold mb-4">Contacto</h2>
+			<a href="mailto:juanf.toroi@gmail.com" class="text-blue-600 hover:underline">
+				juanf.toroi@gmail.com
+			</a>
+		</section>
+	</main>
+</Layout>

@@ -1,0 +1,26 @@
+---
+// Layout base. Deliberadamente sin diseño final todavía —
+// el wireframe/diseño visual viene DESPUÉS de cerrar los case studies
+// (así quedó fijado en la bitácora). Esto solo prueba que el stack funciona.
+import "../styles/global.css";
+
+interface Props {
+	titulo: string;
+	descripcion?: string;
+}
+
+const { titulo, descripcion = "Portafolio de Juan Toro — Desarrollador de Automatización e Integraciones" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={descripcion} />
+		<title>{titulo}</title>
+	</head>
+	<body class="bg-white text-slate-900">
+		<slot />
+	</body>
+</html>

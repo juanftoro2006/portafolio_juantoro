@@ -1,0 +1,23 @@
+{
+  "name": "portafolio-juantoro",
+  "version": "2.0.0",
+  "description": "Portafolio de busqueda de empleo de Juan Toro - Desarrollador de Automatizacion e Integraciones",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "keywords": [],
+  "author": "Juan Toro",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  }
+}
