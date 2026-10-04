@@ -1,0 +1,47 @@
+# Publica el portafolio (carpeta site-v2) en GitHub Pages.
+#
+# Por que este archivo vive en la RAIZ del repo y no dentro de site-v2/:
+# GitHub solo ejecuta workflows que esten en <raiz>/.github/workflows/.
+# Uno guardado en site-v2/.github/workflows/ existe, pero nunca corre.
+#
+# Reemplaza a static.yml, que publicaba el repo completo como HTML suelto.
+# Los dos no pueden convivir: ambos despliegan a Pages y se pisarian.
+name: Publicar portafolio en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permite lanzarlo a mano desde la pestana Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si llegan dos publicaciones seguidas, la segunda espera a la primera.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repo
+        uses: actions/checkout@v4
+      - name: Instalar dependencias y construir el sitio
+        uses: withastro/action@v3
+        with:
+          path: site-v2 # el proyecto Astro no esta en la raiz
+          node-version: 22 # Astro 7 exige Node 22.12 o superior
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: despliegue
+        uses: actions/deploy-pages@v4

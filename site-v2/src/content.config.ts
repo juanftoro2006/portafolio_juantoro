@@ -14,27 +14,49 @@ const proyectos = defineCollection({
   // glob() lee todos los .md de esta carpeta y los trata como entradas de la collection.
   loader: glob({ pattern: "**/*.md", base: "./src/content/proyectos" }),
   schema: z.object({
-    // Título visible del proyecto (ej: "Radar de Vacantes")
+    // Título visible del proyecto (ej: "NoA-CAPTURE")
     titulo: z.string(),
 
-    // Estado real — controla si se muestra el badge "en construcción".
+    // Una sola línea para la tarjeta de la página principal: qué resuelve.
+    // Tope de 160 caracteres: si no cabe en una línea, no es un resumen.
+    resumen: z.string().max(160),
+
+    // Estado real — controla el color del badge.
     // No hay estado intermedio "casi listo": o está probado, o se marca honestamente.
     estado: z.enum(["listo", "construccion"]),
 
+    // Texto corto del badge (ej: "Un mes en operación real", "En piloto").
+    // Es obligatorio para que el estado nunca quede a la imaginación del lector.
+    estado_etiqueta: z.string(),
+
+    // Sector o tipo de proyecto (ej: "Sector construcción", "Proyecto propio").
+    sector: z.string(),
+
     // Regla de anonimización total: NUNCA el nombre real del cliente.
     // Solo la etiqueta genérica ya acordada en la bitácora
-    // (ej: "CONSTRUCTORA", "clínica odontológica", "boutique de moda").
+    // (ej: "empresa constructora", "clínica odontológica", "boutique de moda").
     cliente_anonimizado: z.string().optional(),
+
+    // Tecnologías principales, en el orden en que importan.
+    stack: z.array(z.string()).min(1),
 
     // Estructura fija del case study.
     problema: z.string(),
     solucion: z.string(),
 
     // Regla de honestidad de métricas, aplicada en el TIPO, no solo en revisión manual:
-    // este campo es opcional y es texto libre, pero a propósito NO existe un campo
-    // "resultado_proyectado". Si el número no es medido, simplemente no hay
-    // dónde ponerlo en el schema — se omite, como pasó con FreeSmile AI.
+    // 'resultado' es SOLO para cifras medidas por Juan. A propósito NO existe un campo
+    // "resultado_proyectado": si el número no es medido, no hay dónde ponerlo.
     resultado: z.string().optional(),
+
+    // Fecha de corte de las cifras medidas (ej: "4 de octubre de 2026").
+    // Un número sin fecha envejece en silencio; con fecha, el lector sabe qué tan fresco es.
+    resultado_corte: z.string().optional(),
+
+    // Cifras que NO midió Juan sino que reportó el cliente. Van en un campo aparte
+    // para que la página las etiquete siempre como "reportado por el cliente".
+    // (Decisión del 4-oct-2026: caso NoA-SALES_AI.)
+    resultado_reportado: z.string().optional(),
 
     // Snippet corto y sanitizado (10-20 líneas), nunca el repo completo.
     snippet_codigo: z.string().optional(),
@@ -45,7 +67,6 @@ const proyectos = defineCollection({
     repo_url: z.url().optional(),
 
     // Orden de aparición manual (menor = primero).
-    // Radar de Vacantes es hoy la pieza más fuerte de razonamiento técnico → va primero.
     orden: z.number().default(99),
   }),
 });
