@@ -1,0 +1,88 @@
+---
+// Layout base: encabezado, pie y cambio de tema compartidos por TODAS las páginas.
+// Por qué un layout: el menú y el pie se escriben una sola vez. Con HTML suelto
+// habría que copiarlos en cada página y mantenerlos sincronizados a mano.
+import "../styles/global.css";
+import { ruta } from "../lib/rutas";
+import { perfil } from "../data/perfil";
+
+interface Props {
+	titulo: string;
+	descripcion?: string;
+}
+
+const {
+	titulo,
+	descripcion = `Portafolio de ${perfil.nombre}: ${perfil.titulo}. Pipelines de datos, agentes conversacionales e integraciones con APIs y LLMs.`,
+} = Astro.props;
+
+const inicio = ruta("");
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={descripcion} />
+		<meta property="og:title" content={titulo} />
+		<meta property="og:description" content={descripcion} />
+		<meta property="og:type" content="website" />
+		<title>{titulo}</title>
+		<!-- Se aplica el tema ANTES de pintar la página, para que no parpadee al cargar. -->
+		<script is:inline>
+			try {
+				if (localStorage.getItem("tema") === "claro") document.documentElement.dataset.tema = "claro";
+			} catch (e) {
+				/* sin almacenamiento disponible: se queda el tema por defecto */
+			}
+		</script>
+	</head>
+	<body>
+		<header class="cabecera">
+			<div class="contenedor">
+				<a class="marca" href={inicio}>Portfolio-<span class="acento">JUAN Toro</span></a>
+				<nav aria-label="Principal">
+					<ul class="menu">
+						<li><a href={`${inicio}#proyectos`}>Proyectos</a></li>
+						<li><a href={`${inicio}#sobre-mi`}>Sobre mí</a></li>
+						<li><a href={`${inicio}#contacto`}>Contacto</a></li>
+					</ul>
+				</nav>
+				<button class="boton-tema" id="boton-tema" type="button" aria-label="Cambiar entre tema oscuro y claro">
+					Tema claro
+				</button>
+			</div>
+		</header>
+
+		<slot />
+
+		<footer class="pie">
+			<strong>{perfil.nombre.toUpperCase()}</strong>
+			<span>{perfil.titulo} · {perfil.ubicacion}</span>
+		</footer>
+
+		<script is:inline>
+			// Único JavaScript del sitio: alternar el tema y recordarlo.
+			(function () {
+				var boton = document.getElementById("boton-tema");
+				var raiz = document.documentElement;
+				function pintar() {
+					boton.textContent = raiz.dataset.tema === "claro" ? "Tema oscuro" : "Tema claro";
+				}
+				pintar();
+				boton.addEventListener("click", function () {
+					var claro = raiz.dataset.tema === "claro";
+					if (claro) delete raiz.dataset.tema;
+					else raiz.dataset.tema = "claro";
+					try {
+						localStorage.setItem("tema", claro ? "oscuro" : "claro");
+					} catch (e) {
+						/* si no se puede guardar, el tema igual cambia en esta visita */
+					}
+					pintar();
+				});
+			})();
+		</script>
+	</body>
+</html>

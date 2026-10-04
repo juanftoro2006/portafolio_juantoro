@@ -1,0 +1,108 @@
+---
+// Página individual de cada proyecto. Se genera UNA por cada .md de la collection.
+// Orden fijo: Problema → Solución → Resultado (solo si existe) → decisiones → snippet.
+import Layout from "../../layouts/Layout.astro";
+import Icono from "../../components/Icono.astro";
+import { Code } from "astro:components";
+import { getCollection, render } from "astro:content";
+import { ruta } from "../../lib/rutas";
+import { perfil } from "../../data/perfil";
+
+export async function getStaticPaths() {
+	const proyectos = await getCollection("proyectos");
+	return proyectos.map((proyecto) => ({
+		params: { id: proyecto.id },
+		props: { proyecto },
+	}));
+}
+
+const { proyecto } = Astro.props;
+const d = proyecto.data;
+const { Content } = await render(proyecto);
+---
+
+<Layout titulo={`${d.titulo} — ${perfil.nombre}`} descripcion={d.resumen}>
+	<main class="detalle">
+		<a class="volver" href={`${ruta("")}#proyectos`}>← Todos los proyectos</a>
+
+		<h1>{d.titulo}</h1>
+		<div class="detalle-meta">
+			<span class={`insignia insignia-${d.estado}`}>{d.estado_etiqueta}</span>
+			<span>{d.sector}</span>
+			{d.cliente_anonimizado && <span>· Cliente: {d.cliente_anonimizado}</span>}
+		</div>
+		<ul class="chips" aria-label="Tecnologías">
+			{d.stack.map((t) => <li class="chip">{t}</li>)}
+		</ul>
+
+		<section class="bloque">
+			<h2>Problema</h2>
+			<p>{d.problema}</p>
+		</section>
+
+		<section class="bloque">
+			<h2>Solución</h2>
+			<p>{d.solucion}</p>
+		</section>
+
+		{
+			d.resultado && (
+				<section class="bloque">
+					<h2>
+						Resultado <small>medido</small>
+					</h2>
+					<div class="resultado">
+						<p>{d.resultado}</p>
+						{d.resultado_corte && <p class="nota">Cifras con corte al {d.resultado_corte}.</p>}
+					</div>
+				</section>
+			)
+		}
+
+		{
+			d.resultado_reportado && (
+				<section class="bloque">
+					<h2>
+						Resultado <small>reportado por el cliente</small>
+					</h2>
+					<div class="resultado reportado">
+						<p>{d.resultado_reportado}</p>
+						<p class="nota">Son cifras que dio el cliente durante la prueba. No son una medición mía.</p>
+					</div>
+				</section>
+			)
+		}
+
+		<article class="prosa">
+			<Content />
+		</article>
+
+		{
+			d.snippet_codigo && (
+				<section class="bloque">
+					<h2>Un fragmento que lo demuestra</h2>
+					{d.snippet_descripcion && <p>{d.snippet_descripcion}</p>}
+					<Code code={d.snippet_codigo.trimEnd()} lang={(d.snippet_lenguaje ?? "text") as any} theme="github-dark" />
+				</section>
+			)
+		}
+
+		<div class="acciones">
+			{
+				d.repo_url && (
+					<a class="boton boton-principal" href={d.repo_url} target="_blank" rel="noopener">
+						<Icono nombre="github" /> Ver el repositorio
+					</a>
+				)
+			}
+			{
+				d.video_url && (
+					<a class="boton boton-secundario" href={d.video_url} target="_blank" rel="noopener">
+						Ver el video demo
+					</a>
+				)
+			}
+			<a class="boton boton-secundario" href={`mailto:${perfil.correo}`}><Icono nombre="correo" /> Hablemos de este proyecto</a>
+		</div>
+	</main>
+</Layout>

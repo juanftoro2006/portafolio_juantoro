@@ -1,0 +1,164 @@
+---
+// Página principal. Estructura fijada en la bitácora:
+// Hero → Proyectos → Sobre mí → Contacto.
+// Los proyectos NO se escriben aquí: salen de src/content/proyectos/*.md.
+// Agregar un proyecto = agregar un archivo .md; esta página no se toca.
+import Layout from "../layouts/Layout.astro";
+import Icono from "../components/Icono.astro";
+import { getCollection } from "astro:content";
+import { ruta } from "../lib/rutas";
+import { perfil, stackPrincipal, habilidades, trayectoria } from "../data/perfil";
+
+const proyectos = (await getCollection("proyectos")).sort((a, b) => a.data.orden - b.data.orden);
+---
+
+<Layout titulo={`${perfil.nombre} — ${perfil.titulo}`}>
+	<main>
+		<!-- ================= HERO ================= -->
+		<section class="contenedor hero" id="inicio">
+			<div>
+				<p class="hero-rol">{perfil.titulo}</p>
+				<h1>Soy <span class="acento">JUAN</span> Toro</h1>
+				<p class="hero-lugar">{perfil.ubicacion} · {perfil.disponibilidad}</p>
+
+				<div class="tarjeta-lavanda">
+					<p>
+						Construyo pipelines de datos, agentes conversacionales y backends que conectan APIs REST,
+						modelos de lenguaje y bases de datos para eliminar trabajo manual en procesos administrativos
+						y comerciales.
+					</p>
+					<p>
+						<strong>Mi diferencia:</strong> antes de programar dirigí operaciones durante 25 años. Entiendo
+						el proceso de negocio antes de automatizarlo.
+					</p>
+				</div>
+
+				<ul class="chips" aria-label="Stack principal">
+					{stackPrincipal.map((t) => <li class="chip">{t}</li>)}
+				</ul>
+
+				<div class="acciones">
+					<a class="boton boton-principal" href="#proyectos">Ver proyectos <Icono nombre="flecha" /></a>
+					<a class="boton boton-secundario" href={`mailto:${perfil.correo}`}><Icono nombre="correo" /> {perfil.correo}</a>
+				</div>
+			</div>
+			<div class="hero-foto">
+				<img
+					class="retrato"
+					src={ruta("img/juantoro.webp")}
+					alt="Retrato de Juan Toro"
+					width="458"
+					height="643"
+					decoding="async"
+				/>
+			</div>
+		</section>
+
+		<!-- ================= PROYECTOS ================= -->
+		<section class="seccion" id="proyectos">
+			<div class="contenedor">
+				<h2>Proyectos</h2>
+				<div class="divisor"></div>
+				<p class="entrada">
+					Sistemas que construí de principio a fin. Cada uno cuenta el problema, la solución y, solo cuando
+					existe un dato real, el resultado. Los nombres de clientes están anonimizados.
+				</p>
+
+				<div class="rejilla">
+					{
+						proyectos.map((p) => (
+							<a class="proyecto" href={ruta(`proyectos/${p.id}/`)}>
+								<span class={`insignia insignia-${p.data.estado}`}>{p.data.estado_etiqueta}</span>
+								<div>
+									<h3>{p.data.titulo}</h3>
+									<span class="proyecto-sector">{p.data.sector}</span>
+								</div>
+								<p>{p.data.resumen}</p>
+								<ul class="chips" aria-label="Tecnologías">
+									{p.data.stack.slice(0, 5).map((t) => <li class="chip">{t}</li>)}
+								</ul>
+								<span class="proyecto-mas">Ver el caso completo →</span>
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= SOBRE MÍ ================= -->
+		<section class="seccion" id="sobre-mi">
+			<div class="contenedor">
+				<h2>Sobre mí</h2>
+				<div class="divisor"></div>
+
+				<div class="dos-columnas">
+					<div class="sobre">
+						<p>
+							Soy {perfil.nombreCompleto}. Antes de programar dirigí operaciones y proyectos durante 25 años
+							en construcción, alimentos, seguros y comercio internacional.
+						</p>
+						<p class="cita">
+							Primero ordeno el proceso y después lo automatizo. Automatizar un proceso desordenado solo hace
+							el desorden más rápido.
+						</p>
+						<p>
+							Hoy construyo los sistemas que yo mismo habría necesitado como operador. Desde 2025 lo hago
+							en NoA, mi práctica de automatización para pymes: levanto el proceso con el cliente, encuentro
+							el cuello de botella, desarrollo la solución y la pongo en operación.
+						</p>
+						<p>
+							Documento cada decisión técnica y cada error en una bitácora por proyecto. Es la razón por la
+							que puedo explicar por qué algo está hecho así, y no solo que funciona.
+						</p>
+					</div>
+
+					<div>
+						<ul class="linea" aria-label="Trayectoria">
+							{
+								trayectoria.map((t) => (
+									<li>
+										<span class="periodo">{t.periodo}</span>
+										<span>
+											{t.rol}
+											<small>{t.sector}</small>
+										</span>
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+
+				<div class="habilidades">
+					{
+						habilidades.map((h) => (
+							<div>
+								<h3>{h.grupo}</h3>
+								<ul class="chips">
+									{h.items.map((i) => <li class="chip">{i}</li>)}
+								</ul>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= CONTACTO ================= -->
+		<section class="seccion contacto" id="contacto">
+			<div class="contenedor">
+				<h2>Contacto</h2>
+				<div class="divisor"></div>
+				<p class="entrada">
+					Busco un rol de automatización e integraciones, remoto. Si tienes un proceso manual que ya debería
+					correr solo, escríbeme.
+				</p>
+				<div class="acciones">
+					<a class="boton boton-principal" href={`mailto:${perfil.correo}`}><Icono nombre="correo" /> {perfil.correo}</a>
+					<a class="boton boton-secundario" href={perfil.linkedin} target="_blank" rel="noopener"><Icono nombre="linkedin" /> LinkedIn</a>
+					<a class="boton boton-secundario" href={perfil.github} target="_blank" rel="noopener"><Icono nombre="github" /> GitHub</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
