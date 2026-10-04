@@ -1,0 +1,7 @@
+# Dependencias: se reinstalan con "npm install" o "pip install".
+# No se versionan porque pesan miles de archivos y no son codigo propio.
+node_modules/
+venv/
+
+# Borradores y respaldos de las sesiones de trabajo con Claude.
+Claude outputs/

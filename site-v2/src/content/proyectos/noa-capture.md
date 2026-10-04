@@ -25,4 +25,4 @@ Una clave de deduplicación solo protege lo que logra tener clave. Los documento
 
 ## Sobre el ahorro de tiempo
 
-Esto es una estimación, no una medición. Calculado a 8 minutos por factura para el proceso manual completo (abrir el correo, abrir el PDF, ubicar los campos y digitarlos), el volumen de un mes equivale a más de 27 horas de digitación.
+Esto es una estimación, no una medición. Calculado a 8 minutos por factura para el proceso manual completo (abrir el correo, abrir el PDF, ubicar los campos y digitarlos), las 261 facturas del mes equivalen a unas 35 horas de digitación.

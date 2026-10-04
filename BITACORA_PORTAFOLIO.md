@@ -42,11 +42,13 @@ Por qué (17-sep):
 
 Ratificación del 4-oct: Juan pidió conservar la presentación visual de su `index.html` original y preguntó si convenía trabajar sobre ese archivo o sobre `site-v2`. Decisión: **`site-v2` como motor, con el diseño original portado encima** (azul noche `#191c32`, acentos aqua, tarjeta lavanda `#b2b0ee`, retrato con marco cian, cambio de tema). Razón: con 4 proyectos y página de detalle, el HTML suelto obliga a copiar menú y pie en 5 páginas; en Astro cada proyecto es un `.md`.
 
-Pendiente de decidir: renombrar el repo a `juanftoro2006.github.io` o dejar `portafolio_juantoro`. Juan lo revisa "cuando sepamos cómo va quedando". Ya no bloquea: las rutas internas pasan por `src/lib/rutas.ts`, que respeta el `base`.
+**Dirección definitiva — DECIDIDO (4-oct-2026): `https://juanftoro2006.github.io/portafolio_juantoro/`.** El repo NO se renombra. Razón: Juan envía este link en postulaciones activas desde hoy, y renombrar el repo después rompería los links ya enviados. Las rutas internas pasan por `src/lib/rutas.ts`, que respeta el `base`.
 
 ## Estado del sitio (4-oct-2026)
 
-Construido completo en `C:\PROYECTOS\portafolio\site-v2\`, **sin commitear y sin publicar**, pendiente de evaluación de Juan. Verificado en build limpio: 5 páginas, 0 errores, 0 archivos JS externos, 124 KB en total, 8 enlaces internos sin 404, sin desborde en móvil, y búsqueda de nombres reales de clientes y personas en el HTML generado sin resultados.
+**PUBLICADO el 4-oct-2026** en `https://juanftoro2006.github.io/portafolio_juantoro/`. Commit `9279c73` en `main`; el workflow `Publicar portafolio en GitHub Pages` corrió bien al primer intento. Verificado en línea: inicio y ficha de NoA-CAPTURE cargan con el contenido nuevo. Juan lo probó en celular: tema claro/oscuro, LinkedIn y GitHub funcionan. La rama `stack-v2-scaffolding` ya está mezclada en `main`.
+
+Construido en `C:\PROYECTOS\portafolio\site-v2\`. Verificado en build limpio: 5 páginas, 0 errores, 0 archivos JS externos, 124 KB en total, 8 enlaces internos sin 404, sin desborde en móvil, y búsqueda de nombres reales de clientes y personas en el HTML generado sin resultados.
 
 Archivos:
 - `src/content.config.ts` — schema ampliado: `resumen`, `estado_etiqueta`, `sector`, `stack`, `resultado_corte`, `resultado_reportado`.
@@ -64,7 +66,7 @@ Para verlo en local: `cd site-v2`, `npm run dev`, abrir `http://localhost:4321/p
 
 **NoA-CAPTURE — CARGADO (orden 1).**
 Cliente anonimizado: en la ficha aparece redactado como "empresa constructora" (el término acordado es "CONSTRUCTORA"). Resultado medido, confirmado por Juan el 4-oct: 261 facturas en el mes de operación; 205 leídas del XML de forma determinista y 56 rescatadas por visión. Eso es 21% del total (56/261). El "27%" del CV sale de dividir 56/205 y no es el porcentaje del total.
-Las "~27 horas/mes" son una estimación (8 min por factura sobre 205 facturas), no una medición: en la ficha van etiquetadas como estimación. Con 261 facturas serían unas 35 horas; Juan debe decidir cuál cifra usa.
+Horas ahorradas — DECIDIDO por Juan (4-oct): **unas 35 horas mensuales** (261 facturas × 8 min; unas 418 al año), siempre etiquetadas como estimación, no medición. La ficha y el CV dicen lo mismo.
 Fuera de la ficha por no encontrar la fuente: "procesadas en menos de 10 minutos" (está en el CV, no en la bitácora del proyecto).
 Sin snippet: Juan debe extraerlo y sanitizarlo (candidatos: dedup por CUFE, fallback XML→visión).
 
@@ -84,10 +86,14 @@ Cliente anonimizado como "boutique de moda"; el vendedor aparece como "vendedor 
 **FreeSmile AI — FUERA de esta versión** por decisión de Juan (4-oct). Sigue en el CV. El texto Problema-Solución sin Resultado sigue siendo válido si se quiere agregar después.
 
 ## Pendientes inmediatos
-- **Juan evalúa el sitio** y marca correcciones de texto y diseño.
-- Decidir la cifra de horas de NoA-CAPTURE (27 vs ~35) y dar la fuente de "menos de 10 minutos".
-- **Actualizar el CV**: describe el Radar viejo (n8n, 249 vacantes, 4 empresas) y dice "56 de 205 (27%)" en NoA-CAPTURE. Cuando esté al día se agrega el botón de descarga al portafolio.
-- Publicación: commit en la rama `stack-v2-scaffolding`, decidir el nombre del repo y mover `deploy.yml` a la raíz del repo — hoy está en `site-v2/.github/workflows/`, y GitHub solo ejecuta workflows desde `.github/workflows/` en la raíz, así que **tal como está no corre**. En la raíz sigue `static.yml`, que publica el sitio viejo.
+- Juan aprobó el sitio el 4-oct ("me gusta mucho"). Mejoras posteriores se hacen de a una.
+- Forma de trabajo pedida por Juan: instrucciones **un paso a la vez**, esperando su confirmación antes del siguiente.
+- Pendiente: la fuente de "menos de 10 minutos" de NoA-CAPTURE (está en el CV, no en la ficha).
+- ~~Actualizar el CV.~~ Hecho el 4-oct: `CV_2026_Juan_Fernando_Toro_Isaza_ES_V3_2.docx` y `..._EN_V3_2.docx` en la carpeta `Hoja de vida`, con el Radar en su versión actual, "56 de 261 (21%)" y 35 horas. Formato ATS intacto (sin tablas ni imágenes, 2 páginas). Juan exportó él mismo los PDF `..._ES.pdf` y `..._EN.pdf`, que son los que envía. El CV NO va en el repo: el repo es público. Pendiente opcional: botón de descarga del CV en el portafolio y link del portafolio en el encabezado del CV.
+- Juan envió el portafolio a sus postulaciones activas el 4-oct.
+- ~~Publicación.~~ Hecha el 4-oct por Juan desde su terminal, paso a paso (la sesión no tiene credenciales de GitHub y `.github/workflows/` está protegido contra escritura remota). Quedó un solo workflow: `.github/workflows/deploy.yml` en la raíz (Node 22, jobs construir y publicar). Se borraron `static.yml` y el `deploy.yml` mal ubicado de `site-v2/`. Aprendizaje: el "ruido CRLF" anotado antes no existe en el Windows de Juan; era un efecto de mirar el repo desde Linux.
+- Orden de proyectos confirmado por Juan (4-oct): NoA-CAPTURE, Radar de Vacantes, NoA-ASIS_AI, NoA-SALES_AI.
+- Limpieza del repo (en curso, 4-oct): se agrega `.gitignore` en la raíz y se dejan de versionar `node_modules/` (2.946 archivos) y `venv/` (860) con `git rm -r --cached`, que los saca de git sin borrarlos del disco.
 - Snippets de NoA-CAPTURE, NoA-ASIS_AI y NoA-SALES_AI (los extrae y sanitiza Juan).
 - Videos demo — backlog.
 - Reemplazo del `index.html` viejo: sigue en la raíz sin tocar.
